@@ -1,0 +1,1801 @@
+/*
+  ORDER NTF CLUB
+  Developed by: Gustavo Morean
+*/
+:root {
+  --onc-color-yellow: #e0c945;
+  --onc-color_yellow_dark: #655604;
+  --onc-color_orange: #d59a11;
+  --onc-color-bg: #181818;
+  --onc-color-bg-dark: black;
+  --onc-color-txt: #181818;
+  --onc-color-txt-secondary: #A4A4A4;
+  --onc-gradient-yellow: radial-gradient(circle,
+      rgba(224, 201, 69, 1) 38%,
+      rgba(125, 66, 0, 1) 100%);
+  --onc-gradient-yellow-v2: linear-gradient(90deg,
+      rgba(163, 86, 0, 1) -20%,
+      rgba(224, 201, 69, 1) 8%,
+      rgba(224, 201, 69, 1) 60%,
+      rgba(163, 86, 0, 1) 120%);
+  --onc-gradient-yellow-v2-hover: linear-gradient(90deg,
+      rgba(163, 86, 0, 1) -20%,
+      rgba(224, 201, 69, 1) 8%,
+      rgba(224, 201, 69, 1) 65%,
+      rgba(163, 86, 0, 1) 130%);
+  --onc-boxshadow-yellow: 0px 0px 20px 2px #efde74;
+  --onc-mobileToggle: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28224, 201, 69, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: 'Agency FB';
+  font-weight: normal;
+  font-style: normal;
+}
+
+a,
+a:hover {
+  transition: 0.20s all linear;
+  text-decoration: none;
+}
+
+/* ==== FONTS === */
+
+@font-face {
+  font-family: 'Agency FB';
+  src: url('./assets/fonts/AgencyFB-Reg.eot');
+  src: url('./assets/fonts/AgencyFB-Reg.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/AgencyFB-Reg.woff2') format('woff2'),
+    url('./assets/fonts/AgencyFB-Reg.woff') format('woff'),
+    url('./assets/fonts/AgencyFB-Reg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Agency FB';
+  src: url('./assets/fonts/AgencyFB-Bold.eot');
+  src: url('./assets/fonts/AgencyFB-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/AgencyFB-Bold.woff2') format('woff2'),
+    url('./assets/fonts/AgencyFB-Bold.woff') format('woff'),
+    url('./assets/fonts/AgencyFB-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--onc-color-bg);
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.25s linear;
+}
+
+header.ordersticky {
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: 0.25s linear;
+}
+
+header .navbar-nav .nav-link {
+  color: var(--onc-color-yellow);
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.3;
+  text-transform: uppercase;
+  padding: 0.75rem;
+}
+
+header .navbar-nav .nav-item {
+  margin: 0.5rem;
+}
+
+.featured_cta {
+  background-color: var(--onc-color-yellow);
+  background: var(--onc-gradient-yellow-v2);
+  color: var(--onc-color-txt);
+  border-radius: 0.375rem;
+  transition: 300ms all ease;
+}
+
+.featured_cta .nav-link {
+  color: var(--onc-color-txt) !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0.375rem;
+  transition: 300ms all ease;
+}
+
+.featured_cta:hover .nav-link {
+  background: #ffffff;
+  box-shadow: var(--onc-boxshadow-yellow);
+  border-radius: 0.375rem;
+  transition: 300ms all ease;
+}
+
+#hero {
+  background-color: #18181866;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  position: relative;
+}
+
+#hero .container {
+  z-index: 2;
+}
+
+#hero h1 {
+  color: white;
+  font-size: 6rem;
+  line-height: 1;
+  font-weight: 600;
+  margin-bottom: 1.875rem;
+  text-transform: uppercase;
+}
+
+#video_hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100vw;
+  object-fit: cover;
+}
+
+.ppal_cta {
+  background-color: transparent;
+  border: 1px solid var(--onc-color-yellow);
+  border-radius: 0.25rem;
+  color: var(--onc-color-yellow);
+  font-size: 2.375rem;
+  font-weight: bold;
+  margin: 0.75rem 0;
+  line-height: 1;
+  padding: 1.25rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: 300ms ease all;
+}
+
+.ocultar-mobile {
+  display: none;
+}
+
+.ppal_cta:hover {
+  background: var(--onc-color-yellow);
+  color: var(--onc-color_yellow_dark);
+  transition: 300ms all ease;
+}
+
+.btn-primary {
+  background-color: transparent;
+  border: 1px solid var(--onc-color-yellow);
+  border-radius: 0.25rem;
+  color: var(--onc-color-yellow);
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: 150ms all ease;
+  text-transform: uppercase;
+}
+
+.btn-primary:hover {
+  background: var(--onc-color-yellow);
+  border: 1px solid var(--onc-color-yellow);
+  color: var(--onc-color_yellow_dark);
+  transition: 150ms all ease;
+}
+
+.btn-primary:active {
+  background: var(--onc-color_orange) !important;
+  border: 1px solid var(--onc-color-orange) !important;
+  color: var(--onc-color_yellow_dark) !important;
+}
+
+#video_welcome {
+  background-color: var(--onc-color-bg);
+  background-image: url(./assets/img/bg-naves-planet.webp);
+  position: relative;
+  z-index: 2;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* #video_welcome:before {
+  content: '';
+  background-image: url(../img/naves.webp);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#video_welcome::after {
+  content: '';
+  background-image: url(../img/planeta.webp);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+ */
+#video_welcome .video_section {
+  position: relative;
+  top: -14vh;
+  max-width: 62.25rem !important;
+  margin: 0 auto;
+}
+
+#video_welcome-video {
+  border-radius: 0.75rem;
+  max-width: 100%;
+  margin: 1.25rem auto;
+}
+
+#video_welcome p {
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.yellow_txt {
+  color: var(--onc-color-yellow)
+}
+
+#our_history_section {
+  position: relative;
+  max-width: 62.25rem;
+  margin: o auto;
+}
+
+#our_history_section h2 {
+  font-size: 4.125rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--onc-color-yellow);
+  text-align: center;
+}
+
+#our_history_section p {
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.our_history_images {
+  position: relative;
+}
+
+.our_history_images img {
+  max-width: 40rem;
+  transition: 0.25s ease;
+  transform: translate(0rem, 0.625rem);
+}
+
+.our_history_images img:hover {
+  transition: 0.25s ease;
+  transform: translate(0rem, -0.625rem);
+}
+
+.benefics_section {
+  background-color: var(--onc-color-bg)
+}
+
+.benefics_title {
+  background-color: var(--onc-color-yellow);
+  background-image: url(./assets/img/banner.webp);
+  background-size: cover;
+  background-position: center;
+  /* background-image: url(../img/04_BG.webp);
+  background-position: center;
+  background-repeat: no-repeat; */
+  min-height: 18.75rem;
+  position: relative;
+
+}
+
+.benefics_title h2 {
+  position: absolute;
+  left: auto;
+  right: 10%;
+  top: 28%;
+  bottom: auto;
+  color: var(--onc-color-txt);
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.benefics_info1 h3 {
+  color: white;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.benefics_info1 .yellow_txt {
+  font-weight: 700;
+}
+
+#beneficios_ordinarios_acc .accordion-item {
+  background-color: transparent !important;
+  border: 0rem;
+  padding: 1.25rem;
+}
+
+#beneficios_ordinarios_acc h2.accordion-header button {
+  color: var(--onc-color-txt);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.3;
+  background: var(--onc-color-yellow);
+  border: 0rem;
+  border-radius: 1.25rem;
+  outline: none;
+  box-shadow: none;
+}
+
+#beneficios_ordinarios_acc button:focus,
+#beneficios_ordinarios_acc button:active {
+  outline: none;
+  box-shadow: none;
+  border: 0rem;
+}
+
+#beneficios_ordinarios_acc h2.accordion-header button:after {
+  width: 2rem !important;
+  height: 2rem !important;
+  background-size: 2rem !important;
+}
+
+#beneficios_ordinarios_acc h2.accordion-header .accordion-button:not(.collapsed)::after {
+  background-image: var(--bs-accordion-btn-icon);
+}
+
+#beneficios_ordinarios_acc .accordion-body * {
+  color: white;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+h3.tokens {
+  color: white;
+  font-size: 4.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.inner-benefics {
+  padding: 3.125rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cta_small-btn {
+  background-color: var(--onc-color-yellow);
+  background: var(--onc-gradient-yellow-v2);
+  border-radius: 0.25rem;
+  color: var(--onc-color-bg);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.75rem auto;
+  line-height: 1;
+  padding: 1.25rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta_small-btn:hover {
+  background: var(--onc-gradient-yellow-v2-hover);
+  box-shadow: var(--onc-boxshadow-yellow);
+}
+
+h4.delegados {
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.benefics-fs {
+  max-width: 26.25rem;
+}
+
+img.benefics_img.img-fluid {
+  max-height: 18.75rem;
+  /* width: 10%; */
+}
+
+.img-fluid {
+  aspect-ratio: 1/1;
+  height: 100%;
+  object-fit: cover;
+}
+
+img.form-mobile {
+  display: none;
+}
+
+
+.benefics_content>.container {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.nft-gift h3 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-weight: 700;
+}
+
+.nft-gift h3 span {
+  font-weight: 700;
+}
+
+span.nft-gift-inner-title1 {
+  font-size: 3.2rem;
+}
+
+span.nft-gift-inner-title2 {
+  color: var(--onc-color-yellow);
+  font-size: 6rem;
+}
+
+form#get_a_NFT_gift {
+  background-color: var(--onc-color-yellow);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  align-items: flex-end;
+  max-width: 26.25rem;
+  margin: 1.875rem auto;
+}
+
+input.get_a-NFT-input {
+  background: transparent;
+  border-radius: 0.25rem;
+  font-size: 1.3rem;
+  padding: 0.625rem;
+  margin: 0.375rem 0;
+  color: var(--onc-color-text);
+  width: 100%;
+}
+
+input.get_a-NFT-input::placeholder {
+  color: var(--onc-color-txt);
+}
+
+button.get_a-NFT-btn {
+  color: white;
+  background-color: var(--onc-color-bg);
+  border: 0rem;
+  padding: 0.625rem;
+  width: max-content;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin: 1.25rem 0;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+button.modalAcceptBtn {
+  color: white;
+  background-color: black;
+  border: none;
+  padding: 0.625rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  max-width: 80%;
+  margin: auto;
+  display: block;
+}
+
+
+.nft-gift {
+  width: 100%;
+  margin: 1.25rem auto;
+}
+
+.get_a_test-NFT-btn {
+  display: block;
+  margin: 0.625rem auto;
+  width: max-content;
+}
+
+#roadmap {
+  background-color: var(--onc-color-bg);
+  background-image: url(./assets/img/Parallax1.webp);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: relative;
+  padding: 5rem 0rem 70rem 0;
+}
+
+#particles_area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* z-index: 0; */
+}
+
+#particles_area canvas {
+  width: 100%;
+  /* height: 100%; */
+  object-fit: cover;
+  display: block;
+}
+
+h2.roadmap_title_section {
+  font-size: 5rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.roadmap_timeline_wrapper {
+  background-image: url(./assets/img/05_Flecha.webp);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: 47.5rem;
+  margin: 1.25rem auto;
+  position: relative;
+  z-index: 2;
+}
+
+.roadmap_card {
+  display: block;
+  width: 18.75rem;
+  margin: 0.5rem;
+}
+
+/* .roadmap_card:nth-child(even) {
+  align-self: end;
+}
+
+.roadmap_card:nth-child(odd) {
+  align-self: start;
+} */
+
+.roadmap_card:nth-child(2) {
+  align-self: end;
+}
+
+.roadmap_card:nth-child(3) h4 {
+  display: none;
+}
+
+.roadmap_card:nth-child(4) {
+  align-self: end;
+}
+
+.roadmap_card:nth-child(6) h4 {
+  display: none;
+}
+
+.roadmap_card-title {
+  padding: 1.875rem 1.875rem 0 1.875rem;
+  color: var(--onc-color-yellow);
+  font-size: 5rem;
+}
+
+.roadmap_card-title h4 {
+  color: var(--onc-color-yellow);
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.roadmap_card-info {
+  background-color: white;
+  box-shadow: 0.125rem 0.125rem 1.25rem rgba(0, 0, 0, 0.8);
+  padding: 1.875rem;
+  min-height: 9.375rem;
+  align-items: center;
+  display: flex;
+}
+
+.roadmap_card-info p {
+  font-size: 1.33rem;
+  line-height: 1.35;
+  margin: 0;
+  text-align: center;
+}
+
+#faqs {
+  background-color: var(--onc-color-bg);
+  position: relative;
+  padding: 5rem 0;
+}
+
+h2.faq-title {
+  text-align: center;
+  color: var(--onc-color-yellow);
+  font-size: 5.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.faq-body {
+  max-width: 47.5rem;
+  margin: 1.25rem auto 2.1875rem auto;
+}
+
+#faqs_order_acc .accordion-item {
+  background-color: transparent !important;
+  border: 0rem;
+  padding: 1.25rem;
+}
+
+#faqs_order_acc h2.accordion-header button {
+  color: var(--onc-color-txt);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.3;
+  background: var(--onc-color-yellow);
+  border: 0rem;
+  border-radius: 1.25rem;
+  outline: none;
+  box-shadow: none;
+}
+
+#faqs_order_acc button:focus,
+#faqs_order_acc button:active {
+  outline: none;
+  box-shadow: none;
+  border: 0rem;
+}
+
+#faqs_order_acc h2.accordion-header button:after {
+  width: 2rem !important;
+  height: 2rem !important;
+  background-size: 2rem !important;
+}
+
+#faqs_order_acc h2.accordion-header .accordion-button:not(.collapsed)::after {
+  background-image: var(--bs-accordion-btn-icon);
+}
+
+#faqs_order_acc .accordion-body * {
+  color: white;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+h2.yoyknow {
+  color: white;
+  font-size: 2.6rem;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.goto-storeBox {
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.goto-storeBox h3 {
+  width: min-content;
+  padding: 0.625rem;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.oc_whitebrand {
+  width: 6.25rem;
+  height: 6.25rem;
+}
+
+.goto-storeBox>* {
+  margin: 0.25rem;
+}
+
+a.goto_store {
+  background-color: white;
+  color: var(--onc-color-txt);
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 0.875rem 1.5rem;
+  border-radius: 1.25rem;
+}
+
+a.goto_store:hover {
+  background-color: white;
+  box-shadow: var(--onc-boxshadow-yellow);
+}
+
+footer {
+  background-color: var(--onc-color-bg-dark);
+  padding: 1.25rem;
+  text-align: center;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer_inner {
+  display: flex;
+  justify-content: center;
+}
+
+.footer_inner p {
+  font-family: 'Agency FB';
+  font-size: 1.5rem;
+}
+
+.footer_inner .img-responsive {
+  margin-right: 1.25rem;
+}
+
+footer .img-responsive {
+  background-image: url(./assets/img/Logo_BlancoPNG.webp);
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  background-size: cover;
+  width: 7.8125rem;
+  height: 1.875rem;
+  /* position:absolute; */
+}
+
+/*** END HOME ***/
+
+/*** BIENVENIDO DELEGADO ***/
+#hero.bienvenido-al-club {
+  background-color: var(--onc-color-bg);
+  text-align: center;
+}
+
+#hero.bienvenido-al-club>.container {
+  padding-top: 6.25rem;
+  /* padding: 100px; */
+}
+
+#hero.geta-nft-test>.container {
+  padding: 10.3125rem 2.5rem 6.25rem 2.5rem;
+  max-width: 75rem;
+}
+
+#hero.bienvenido-al-club p {
+  color: white;
+  font-size: 2.2rem;
+  line-height: 1.3;
+}
+
+#hero.bienvenido-al-club h1 {
+  margin-bottom: 0.5rem;
+}
+
+.video_welcome-video{
+  margin-bottom: 3.75rem;
+}
+
+.collections-title{
+  margin-bottom: 3.75rem !important;
+}
+
+#coneectar_metamask-wrapper {
+  margin: 2.8125rem auto;
+}
+
+#metamask-shield {
+  background-image: url(./assets/img/boton-metamask.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 14.375rem;
+  height: 21.25rem;
+  position: relative;
+}
+
+.connetMasktxt {
+  color: var(--onc-color-txt) !important;
+  position: relative;
+  bottom: 4%;
+  width: 9.375rem;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-size: 2.125rem !important;
+  font-weight: 700;
+  line-height: 1.1 !important;
+  text-align: center;
+  left: auto;
+  right: auto;
+  top: 62%;
+}
+
+/*** BIENVENIDO DELEGADOS ***/
+
+/* BIENVENIDO AL CLUB */
+#welcome-delegado-wrapper .container {
+  min-height: 26.25rem;
+  max-width: 64rem;
+  margin: 2.1875rem auto;
+  background-color: white;
+}
+
+/* END BIENVENIDO AL CLUB */
+
+/*** GET A NFT ***/
+#hero.geta-nft-test {
+  background-color: var(--onc-color-bg);
+  text-align: center;
+}
+
+#hero.geta-nft-test p {
+  font-family: 'DM Sans', 'Roboto', sans-serif;
+  ;
+  color: white;
+  font-size: 2.2rem;
+  line-height: 1.3;
+}
+
+#hero.geta-nft-test h1::first-letter {
+  text-transform: capitalize;
+}
+
+#hero.geta-nft-test h1 {
+  margin-bottom: 0.5rem;
+  text-transform: lowercase;
+}
+
+.welcome-card{
+  background-color: var(--onc-color-yellow);
+  border: 5px solid var(--onc-color-yellow);
+  color:var(--onc-color_yellow_dark);
+  transition: 300ms all ease;
+}
+
+.welcome-card .card-body .card-title{
+  font-family: 'DM Sans';
+  font-weight: bold;
+  font-size: 1.0625rem;
+}
+
+.welcome-card > div{
+  overflow: hidden;
+}
+
+
+.card-img-top{
+  transition: 300ms all ease;
+}
+
+.welcome-card:hover{
+  background-color:#ffffff;
+  border: 5px solid #ffffff;
+  transition: 300ms all ease;
+}
+
+.welcome-card:hover > div > .card-img-top{
+  transform: scale(1.5);
+  transition: 300ms all ease;
+}
+
+.welcome-card .card-body .card-title{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.bienvenido-al-club .container-lg .row{
+  justify-content: center !important
+}
+
+.bienvenido-al-club .container-lg .row .col{
+  width: 25% !important;
+  max-width: 32.1875rem !important;
+}
+
+.account{
+  font-family: 'DM Sans';
+  font-size: 1.5rem !important;
+  margin-top: 1.375rem;
+  word-break: break-word;
+}
+
+.account span{
+  font-family: 'DM Sans';
+  font-weight: bold;
+}
+
+
+.account-value{
+  font-family: 'DM Sans';
+  font-size: 1.5rem !important;
+}
+
+.account-value span{
+  font-family: 'DM Sans';
+  font-weight: bold;
+}
+
+
+.account-value-icon{
+  width: 1.25rem;
+  margin-right: 0.625rem;
+}
+
+.collection-club-detail-nft-name {
+  text-transform: none !important;
+  color: var(--onc-color-yellow) !important;
+}
+
+.owner b,
+p {
+  font-family: 'DM Sans', 'Roboto', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.owner i {
+  font-size: 1.75rem;
+  margin-right: 1.3125rem;
+  margin-left: 0.0625rem;
+}
+
+.stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat-icon {
+  opacity: 60%;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-right: 0.875rem;
+}
+
+
+.stats>div p {
+  color: var(--onc-color-txt-secondary) !important;
+  font-size: 1.5rem !important;
+}
+
+.stats>div>p {
+  margin-right: 0.5rem;
+}
+
+.benefits {
+  margin-top: 4.125rem;
+}
+
+
+.benefits .benefits-title {
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: 'Agency FB' !important;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.benefits-container {
+  width: 100%;
+  min-height: 5.5rem;
+  max-height: 18.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 0.75rem;
+  margin-top: 1.6875rem;
+}
+
+
+.info-getanft .container>div {
+  padding: 1.875rem;
+}
+
+.getnftcol1 {
+  text-align: right;
+}
+
+
+p.getnft-show {
+  font-size: 3.2rem !important;
+  /* width: 53%; */
+  float: right;
+}
+
+.getnftcol2 {
+  text-align: left;
+}
+
+.tonext_a {
+  max-width: 64rem;
+}
+
+#instruction-wrapper {
+  min-height: 9.375rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3.75rem auto
+}
+
+.instruction-viddeo {
+  padding: 1.875rem;
+  width: 70%;
+}
+
+.instruction-form {
+  background-color: var(--onc-color-yellow);
+  padding: 1.875rem;
+  width: 30%;
+}
+
+.instruction-form form {
+  margin: 0 auto !important;
+}
+
+
+
+/*** END GET A NFT ***/
+
+/*** MOBILE ****/
+
+
+
+
+
+
+
+
+
+
+
+
+span.mobile_delegados.featured_cta {
+  padding: 0.625rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+#yasanescomo {
+  background-color: var(--onc-color-bg);
+  padding: 3.125rem 0;
+}
+
+.delegados_images{
+  margin-top: 3.5625rem;
+}
+
+.delegados_images ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  justify-content: center;
+}
+
+.delegados_images ul li {
+  width: 25%;
+  height: fit-content;
+  padding: 1.25rem;
+}
+
+.nft-name{
+  font-family: 'DM Sans';
+  font-size: 1.5625rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.delegados_images ul li span{
+  display: block;
+}
+
+.delegados_images ul li span p {
+  font-size: 1.25rem !important;
+}
+
+.delegados_images ul li span p span{  
+  font-size: 1.25rem !important;
+  font-weight: bold;
+}
+
+.delegados_images .img-responsive {
+  width: 20.625rem;
+}
+
+
+.delegados_images span p span {
+  font-family: 'DM Sans';
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.delegados_images ul li .img-fluid{
+  border: 5px solid var(--onc-color-yellow);
+  min-height: 21.25rem;
+}
+
+div#yasanescomo {
+  text-align: center;
+  color: white;
+}
+
+
+div#yasanescomo h2 {
+  font-size: 5.25rem;
+}
+
+div#yasanescomo h4 {
+  font-size: 2.9375rem;
+}
+
+div#yasanescomo p {
+  font-size: 1.875rem;
+}
+
+div#yasanescomo .container {
+  max-width: 44.375rem;
+}
+
+div#yasanescomo video {
+  width: 100%;
+}
+
+div#hero.herroo {
+  padding: 0px 0;
+}
+
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 624.9375rem;
+  background-color: #ffffff31;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 624.9375rem;
+  background-color: var(--onc-color-yellow);
+}
+
+
+
+
+/* modal */
+.modal {
+  width: 50%;
+  max-width: 600px;
+  height: 52%;
+  margin: 0 auto;
+  max-height: 80%;
+  background-color: var(--onc-color-yellow);
+  box-shadow: 0rem 0rem 0.625rem rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+/* .modal {
+  width: 60%;
+  max-width: 500px;
+  height: 60%;
+  margin: 0 auto;
+  background-color: #F7D358;;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+} */
+
+
+/* fondo oscuro */
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Modifica para hacerlo más oscuro */
+  z-index: 50;
+}
+
+
+/* botón aceptar */
+.modal button {
+  display: block;
+  margin: 0 auto;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+}
+
+/* texto */
+.modal-text {
+  color: black;
+}
+
+.modal h1 {
+  font-size: 2.8125rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.modal p {
+  font-size: 1.5625rem;
+  margin: 1.25rem 0;
+  text-align: center;
+}
+
+
+.modalP {
+  width: 20%;
+  max-width: 56.25rem;
+  height: 43%;
+  margin: 0 auto;
+  max-height: 90%;
+  background-color: var(--onc-color-yellow);
+  box-shadow: 0rem 0rem 0.625rem rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.modalCloseP {
+  position: absolute;
+  top: 0.3125rem;
+  right: 0.9375rem;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  background-color: #000001;
+  color: #ffffff;
+  cursor: pointer;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-modal-btn {
+  position: absolute;
+  /* posicionamos el botón de forma absoluta */
+  top: 0.3125rem;
+  /* lo colocamos 5px desde el borde superior */
+  right: 0.3125rem;
+  /* lo colocamos 5px desde el borde derecho */
+  border: none;
+  background-color: #000000;
+  color: #ffffff;
+  background-color: transparent;
+  /* hacemos el botón transparente */
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.get_a-NFT-input {
+  margin-bottom: 0.625rem;
+}
+
+
+
+
+
+
+/*RESPONSIVE*/
+
+
+@media (max-width:1200px) {
+
+  #hero.geta-nft-test>.container {
+    padding: 6.25rem 2.5rem;
+  }
+
+}
+
+
+/* END MOBILE */
+@media only screen and (min-width: 1025px) {
+
+  .mobile_delegados,
+  a.ppal_cta.mobile_cta {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+
+  html button.navbar-toggler,
+  button.navbar-toggler:hover,
+  button.navbar-toggler:active,
+  button.navbar-toggler:focus,
+  button.navbar-toggler:visited,
+  button.navbar-toggler:focus-visible,
+  button.navbar-toggler:focus-within,
+  button.navbar-toggler:target {
+    border: 0px;
+    outline: none;
+    box-shadow: none;
+  }
+
+  span.navbar-toggler-icon {
+    background-image: var(--onc-mobileToggle);
+  }
+
+  .ppal_cta {
+    font-size: 2.1875rem;
+    transition: 300ms all ease !important;
+  }
+
+  .mobile_text {
+    font-size: 1.875rem;
+    text-align: center;
+  }
+
+  .ocultar {
+    display: none;
+  }
+
+  .ocultar-mobile {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  img.brand-logo {
+    height: 3.4375rem;
+  }
+
+  header .navbar-nav .nav-link {
+    color: var(--onc-color-yellow);
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.1;
+    text-transform: uppercase;
+    padding: 0.5rem;
+  }
+
+  header .navbar-nav .nav-item {
+    margin: 0.375rem 0.5rem;
+  }
+
+  #hero h1:not(.collection-club-detail-nft-name) {
+    font-size: 3.375rem;
+  }
+
+  #video_welcome p {
+    color: white;
+    font-size: 1.3125rem;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  div#our_history_section {
+    padding: 0.625rem;
+    max-width: 100%;
+  }
+
+  #our_history_section h2 {
+    font-size: 3rem;
+  }
+
+  #our_history_section p {
+    font-size: 1.375rem;
+  }
+
+  /* .our_history_images.d-flex.justify-content-around {
+    flex-direction: column;
+    flex-wrap: wrap;
+  } */
+
+  .our_history_images img {
+    width: 57%;
+  }
+
+  .our_history_images {
+    align-items: center;
+    flex-wrap: nowrap !important;
+    flex-direction: row !important;
+    padding: 3.125rem 0;
+  }
+
+  .benefics_content .container {
+    flex-direction: column;
+  }
+
+  .benefics_title h2 {
+    font-size: 2.375rem;
+    top: 4%;
+    right: 4%;
+  }
+
+  .benefics_title {
+    height: 100%;
+    min-height: 100px;
+  }
+
+  div#beneficios,
+  .benefics_info2,
+  .benefics_info1 {
+    width: 100% !important;
+    padding: 1.875rem 0.25rem;
+  }
+
+  div#tokens {
+    width: 100%;
+  }
+
+  .inner-benefics {
+    padding: 0rem;
+  }
+
+  #beneficios_ordinarios_acc .accordion-item {
+    padding: 0.625rem;
+  }
+
+  #beneficios_ordinarios_acc h2.accordion-header button {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .accordion-body {
+    padding: 0.625rem;
+  }
+
+  .benefics_info1 h3 {
+    font-size: 3.25rem;
+  }
+
+  .roadmap_timeline_wrapper {
+    padding: 10.625rem 0.5rem;
+  }
+
+  .roadmap_card-info {
+    padding: 1.25rem;
+    min-height: 7.5rem;
+  }
+
+  .roadmap_card {
+    width: 15.625rem;
+  }
+
+  .roadmap_card-title h4 {
+    text-shadow: 0rem 0rem 0.3125rem #000;
+    stroke: black;
+    stroke-width: 7px;
+    -webkit-text-stroke: black;
+    -webkit-text-stroke-width: 0rem;
+  }
+
+  #roadmap {
+    padding: 5rem 0rem 17.5rem 0rem;
+  }
+
+  h2.faq-title {
+    font-size: 4rem;
+  }
+
+  #faqs_order_acc h2.accordion-header button {
+    font-size: 1.5rem;
+  }
+
+  #hero.bienvenido-al-club {
+    padding: 0rem 0;
+  }
+
+  #hero.bienvenido-al-club p {
+    font-size: 1.7rem;
+  }
+
+  .instruction-viddeo,
+  .instruction-form {
+    width: 100%;
+  }
+
+  .geta-nft-test {
+    padding: 7.5rem 0;
+  }
+
+  .getnftcol1,
+  .getnftcol2 {
+    width: 100% !important;
+  }
+
+  .getnftcol1-mobile {
+    text-align: center;
+  }
+
+  .instruction-form form {
+    margin: 0 auto !important;
+  }
+
+  .info-getanft .container {
+    flex-direction: column;
+  }
+
+  p.getnft-show {
+    width: 100%;
+    font-size: 3rem !important;
+    line-height: 1.1 !important;
+  }
+
+  p.tonext_a {
+    font-size: 1.9rem !important;
+  }
+
+  .instruction-form img {
+    width: 10rem;
+  }
+
+  .instruction-form {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    /* margin: 0px; */
+    padding: 4.375rem 0.5rem 1.25rem 0.5rem;
+  }
+
+  .get_a_test-NFT-btn {
+    width: 95%;
+    margin: 0 auto;
+
+  }
+
+  a.get_a_test-NFT-btn.ppal_cta {
+    font-size: 1.875rem;
+    text-align: center;
+  }
+
+  img.benefics_img.img-fluid {
+    max-height: 7.5rem;
+    /* width: 100%; */
+  }
+
+  img.form-mobile {
+    display: inline;
+  }
+
+  .mobile_delegados {
+    display: block;
+  }
+
+  #hero.bienvenido-al-club>.container {
+    /* padding: 100px; */
+    padding-top: 6.25rem;
+  }
+
+
+  div#hero.hero.home a.ppal_cta {
+    display: none;
+  }
+
+  div#hero {
+    text-align: center;
+  }
+
+  a.ppal_cta.mobile_cta {
+    margin: 0.625rem auto 60px auto;
+    text-align: center;
+    display: block;
+    width: 95%;
+  }
+
+
+}
+
+@media only screen and (max-width: 1024px) {
+  div#hero.herroo {
+    padding: 0.625rem 0;
+  }
+
+ 
+
+  #yasanescomo {
+    background-color: var(--onc-color-bg);
+    padding: 1.25rem 0;
+  }
+
+  div#yasanescomo h4 {
+    font-size: 2.3125rem;
+    line-height: 1.2;
+  }
+
+  div#yasanescomo h4 {
+    font-size: 2.3125rem;
+    line-height: 1.2;
+  }
+
+  div#yasanescomo h4 {
+    font-size: 2.3125rem;
+    line-height: 1.2;
+  }
+
+  div#yasanescomo p {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  div#yasanescomo h2 {
+    font-size: 3.375rem;
+    line-height: 1.2;
+  }
+
+}
+
+@media (max-width:991px) {
+
+  .geta-nft-test {
+    padding: 0 0 !important;
+  }
+
+  .delegados_images ul li{
+    width: 30%;
+  }
+  
+  #hero.geta-nft-test .container>div>div:nth-child(2) {
+    width: 100%;
+  }
+
+  .benefits-container {
+    max-height: 56.25rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  img.peoplesmoke {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  
+  div#metamask-shield {
+    width: 100%;
+    height: 25rem;
+    margin: 0 auto;
+  }
+
+  .bienvenido-al-club .container-lg .row{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bienvenido-al-club .container-lg .row .col{
+    width: 80% !important;
+  }
+
+  .delegados_images ul li{
+    width: 80%;
+  }
+
+  .delegados_images ul li .img-fluid{
+    aspect-ratio: auto;
+  }
+
+}
+
+@media(max-width:576px) {
+
+ 
+  #hero.geta-nft-test>.container {
+    padding: 6.25rem 1.5625rem;
+  }
+
+
+  #hero.geta-nft-test h1 {
+    font-size: 4.625rem;
+    margin-bottom: 1rem;
+  }
+
+  #hero h1:not(.collection-club-detail-nft-name){
+    font-size: 3.375rem;
+  }
+
+  .stats {
+    gap: 0.5rem;
+  }
+
+  .delegados_images .img-responsive {
+    width: 90%;
+  }
+
+  .nft-card {
+    height: auto !important;
+  }
+
+  .nft-card-img-container {
+    height: fit-content !important;
+  }
+
+  .benefits-container{
+    max-height: unset;
+    min-height: unset;
+    height: 100%;
+  }
+
+
+}
+
+@media (max-width: 500px) {
+  .modalP {
+    width: 90%;
+    height: 50%;
+    max-height: none;
+  }
+}

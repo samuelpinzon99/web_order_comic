@@ -1,0 +1,21 @@
+.top-to-btm {
+    position: fixed;
+    bottom: 40px;
+    left: 25px; 
+    z-index: 20;
+}
+
+button.to-top {
+    background-color: #d6ba3e;
+    background-image: url('../../assets/img/market.png');
+    background-position: center;
+    background-size: contain;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px; 
+    color: #070707; 
+    cursor: pointer;
+    animation: movebtn 9s ease-in-out infinite;
+    transition: all .1s ease-in-out; 
+}

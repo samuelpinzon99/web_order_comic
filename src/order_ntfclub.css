@@ -1,0 +1,1200 @@
+/*
+  ORDER NTF CLUB
+  Developed by: Gustavo Morean
+*/
+:root {
+    --onc-color-yellow: #e0c945;
+    --onc-color-bg: #181818;
+    --onc-color-bg-dark: black;
+    --onc-color-txt: #181818;
+    --onc-gradient-yellow: radial-gradient(circle,
+        rgba(224, 201, 69, 1) 38%,
+        rgba(125, 66, 0, 1) 100%);
+    --onc-gradient-yellow-v2: linear-gradient(90deg,
+        rgba(163, 86, 0, 1) -20%,
+        rgba(224, 201, 69, 1) 8%,
+        rgba(224, 201, 69, 1) 60%,
+        rgba(163, 86, 0, 1) 120%);
+    --onc-gradient-yellow-v2-hover: linear-gradient(90deg,
+        rgba(163, 86, 0, 1) -20%,
+        rgba(224, 201, 69, 1) 8%,
+        rgba(224, 201, 69, 1) 65%,
+        rgba(163, 86, 0, 1) 130%);
+    --onc-boxshadow-yellow: 0px 0px 20px 2px #efde74;
+    --onc-mobileToggle: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28224, 201, 69, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Agency FB';
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  a,
+  a:hover {
+    transition: 0.20s all linear;
+    text-decoration: none;
+  }
+  
+  /* ==== FONTS === */
+  
+  @font-face {
+    font-family: 'Agency FB';
+    src: url('../fonts/AgencyFB-Reg.eot');
+    src: url('../fonts/AgencyFB-Reg.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/AgencyFB-Reg.woff2') format('woff2'),
+      url('../fonts/AgencyFB-Reg.woff') format('woff'),
+      url('../fonts/AgencyFB-Reg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Agency FB';
+    src: url('../fonts/AgencyFB-Bold.eot');
+    src: url('../fonts/AgencyFB-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/AgencyFB-Bold.woff2') format('woff2'),
+      url('../fonts/AgencyFB-Bold.woff') format('woff'),
+      url('../fonts/AgencyFB-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  
+  body {
+    background-color: var(--onc-color-bg);
+  }
+  
+  header {
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.25s linear;
+  }
+  
+  header.ordersticky {
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: 0.25s linear;
+  }
+  
+  header .navbar-nav .nav-link {
+    color: var(--onc-color-yellow);
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.3;
+    text-transform: uppercase;
+    padding: 12px;
+  }
+  
+  header .navbar-nav .nav-item {
+    margin: 8px;
+  }
+  
+  .featured_cta {
+    background-color: var(--onc-color-yellow);
+    background: var(--onc-gradient-yellow-v2);
+    color: var(--onc-color-txt);
+    border-radius: 4px;
+  }
+  
+  .featured_cta .nav-link {
+    color: var(--onc-color-txt) !important;
+    padding: 12px 24px !important;
+  }
+  
+  .featured_cta:hover .nav-link {
+    background: var(--onc-gradient-yellow-v2-hover);
+    box-shadow: var(--onc-boxshadow-yellow);
+  }
+  
+  #hero {
+    background-color: #18181866;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 95vh;
+    position: relative;
+  }
+  
+  #hero .container {
+    z-index: 2;
+  }
+  
+  #hero h1 {
+    color: white;
+    font-size: 96px;
+    line-height: 1;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  
+  #video_hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100vw;
+    object-fit: cover;
+  }
+  
+  .ppal_cta {
+    background-color: var(--onc-color-yellow);
+    background: var(--onc-gradient-yellow-v2);
+    border-radius: 4px;
+    color: var(--onc-color-bg);
+    font-size: 38px;
+    font-weight: bold;
+    margin: 12px 0;
+    line-height: 1;
+    padding: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .ppal_cta:hover {
+    background: var(--onc-gradient-yellow-v2-hover);
+    box-shadow: var(--onc-boxshadow-yellow);
+  }
+  
+  #video_welcome {
+    background-color: var(--onc-color-bg);
+    background-image: url(../img/bg-naves-planet.webp);
+    position: relative;
+    z-index: 2;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  /* #video_welcome:before {
+    content: '';
+    background-image: url(../img/naves.webp);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  #video_welcome::after {
+    content: '';
+    background-image: url(../img/planeta.webp);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+   */
+  #video_welcome .video_section {
+    position: relative;
+    top: -14vh;
+    max-width: 996px !important;
+    margin: 0 auto;
+  }
+  
+  #video_welcome-video {
+    border-radius: 12px;
+    max-width: 100%;
+    margin: 20px auto;
+  }
+  
+  #video_welcome p {
+    color: white;
+    font-size: 24px;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  .yellow_txt {
+    color: var(--onc-color-yellow)
+  }
+  
+  #our_history_section {
+    position: relative;
+    max-width: 996px;
+    margin: o auto;
+  }
+  
+  #our_history_section h2 {
+    font-size: 66px;
+    line-height: 1.5;
+    font-weight: 700;
+    color: var(--onc-color-yellow);
+    text-align: center;
+  }
+  
+  #our_history_section p {
+    color: white;
+    font-size: 24px;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  .our_history_images {
+    position: relative;
+  }
+  
+  .our_history_images img {
+    max-width: 640px;
+    transition: 0.25s ease;
+    transform: translate(0px, 10px);
+  }
+  
+  .our_history_images img:hover {
+    transition: 0.25s ease;
+    transform: translate(0px, -10px);
+  }
+  
+  .benefics_section {
+    background-color: var(--onc-color-bg)
+  }
+  
+  .benefics_title {
+    background-color: var(--onc-color-yellow);
+    background-image: url(../img/banner.webp);
+    background-size: cover;
+    background-position: center;
+    /* background-image: url(../img/04_BG.webp);
+    background-position: center;
+    background-repeat: no-repeat; */
+    min-height: 300px;
+    position: relative;
+  
+  }
+  
+  .benefics_title h2 {
+    position: absolute;
+    left: auto;
+    right: 10%;
+    top: 28%;
+    bottom: auto;
+    color: var(--onc-color-txt);
+    font-size: 72px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  
+  .benefics_info1 h3 {
+    color: white;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .benefics_info1 .yellow_txt {
+    font-weight: 700;
+  }
+  
+  #beneficios_ordinarios_acc .accordion-item {
+    background-color: transparent !important;
+    border: 0px;
+    padding: 20px;
+  }
+  
+  #beneficios_ordinarios_acc h2.accordion-header button {
+    color: var(--onc-color-txt);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.3;
+    background: var(--onc-color-yellow);
+    border: 0px;
+    border-radius: 20px;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  #beneficios_ordinarios_acc button:focus,
+  #beneficios_ordinarios_acc button:active {
+    outline: none;
+    box-shadow: none;
+    border: 0px;
+  }
+  
+  #beneficios_ordinarios_acc h2.accordion-header button:after {
+    width: 2rem !important;
+    height: 2rem !important;
+    background-size: 2rem !important;
+  }
+  
+  #beneficios_ordinarios_acc h2.accordion-header .accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-icon);
+  }
+  
+  #beneficios_ordinarios_acc .accordion-body * {
+    color: white;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  
+  h3.tokens {
+    color: white;
+    font-size: 4.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .inner-benefics {
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .cta_small-btn {
+    background-color: var(--onc-color-yellow);
+    background: var(--onc-gradient-yellow-v2);
+    border-radius: 4px;
+    color: var(--onc-color-bg);
+    font-size: 24px;
+    font-weight: bold;
+    margin: 12px auto;
+    line-height: 1;
+    padding: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .cta_small-btn:hover {
+    background: var(--onc-gradient-yellow-v2-hover);
+    box-shadow: var(--onc-boxshadow-yellow);
+  }
+  
+  h4.delegados {
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .benefics-imgs {
+    max-width: 420px;
+  }
+  
+  img.benefics_img.img-fluid {
+    max-height: 300px;
+  }
+  
+  .benefics_content>.container {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .nft-gift h3 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-weight: 700;
+  }
+  
+  .nft-gift h3 span {
+    font-weight: 700;
+  }
+  
+  span.nft-gift-inner-title1 {
+    font-size: 3.2rem;
+  }
+  
+  span.nft-gift-inner-title2 {
+    color: var(--onc-color-yellow);
+    font-size: 6rem;
+  }
+  
+  form#get_a_NFT_gift {
+    background-color: var(--onc-color-yellow);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 8px;
+    align-items: flex-end;
+    max-width: 420px;
+    margin: 30px auto;
+  }
+  
+  input.get_a-NFT-input {
+    background: transparent;
+    border-radius: 4px;
+    font-size: 1.3rem;
+    padding: 10px;
+    margin: 6px 0;
+    color: var(--onc-color-text);
+    width: 100%;
+  }
+  
+  input.get_a-NFT-input::placeholder {
+    color: var(--onc-color-txt);
+  }
+  
+  button.get_a-NFT-btn {
+    color: white;
+    background-color: var(--onc-color-bg);
+    border: 0px;
+    padding: 10px;
+    width: max-content;
+    font-size: 1.9rem;
+    cursor: pointer;
+    margin: 20px 0;
+    font-weight: 500;
+  }
+  
+  .nft-gift {
+    width: 100%;
+    margin: 20px auto;
+  }
+  
+  .get_a_test-NFT-btn {
+    display: block;
+    margin: 10px auto;
+    width: max-content;
+  }
+  
+  #roadmap {
+    background-color: var(--onc-color-bg);
+    background-image: url(../img/Parallax1.webp);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    padding: 80px 0px 1120px 0;
+  }
+  
+  #particles_area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  #particles_area canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  h2.roadmap_title_section {
+    font-size: 5rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .roadmap_timeline_wrapper {
+    background-image: url(../img/05_Flecha.webp);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 760px;
+    margin: 20px auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .roadmap_card {
+    display: block;
+    width: 300px;
+    margin: 8px;
+  }
+  
+  /* .roadmap_card:nth-child(even) {
+    align-self: end;
+  }
+  
+  .roadmap_card:nth-child(odd) {
+    align-self: start;
+  } */
+  
+  .roadmap_card:nth-child(2) {
+    align-self: end;
+  }
+  
+  .roadmap_card:nth-child(3) h4 {
+    display: none;
+  }
+  
+  .roadmap_card:nth-child(4) {
+    align-self: end;
+  }
+  
+  .roadmap_card:nth-child(6) h4 {
+    display: none;
+  }
+  
+  .roadmap_card-title {
+    padding: 30px 30px 0 30px;
+    color: var(--onc-color-yellow);
+    font-size: 5rem;
+  }
+  
+  .roadmap_card-title h4 {
+    color: var(--onc-color-yellow);
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .roadmap_card-info {
+    background-color: white;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    min-height: 150px;
+    align-items: center;
+    display: flex;
+  }
+  
+  .roadmap_card-info p {
+    font-size: 1.33rem;
+    line-height: 1.35;
+    margin: 0;
+    text-align: center;
+  }
+  
+  #faqs {
+    background-color: var(--onc-color-bg);
+    position: relative;
+    padding: 80px 0;
+  }
+  
+  h2.faq-title {
+    text-align: center;
+    color: var(--onc-color-yellow);
+    font-size: 5.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .faq-body {
+    max-width: 760px;
+    margin: 20px auto 35px auto;
+  }
+  
+  #faqs_order_acc .accordion-item {
+    background-color: transparent !important;
+    border: 0px;
+    padding: 20px;
+  }
+  
+  #faqs_order_acc h2.accordion-header button {
+    color: var(--onc-color-txt);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.3;
+    background: var(--onc-color-yellow);
+    border: 0px;
+    border-radius: 20px;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  #faqs_order_acc button:focus,
+  #faqs_order_acc button:active {
+    outline: none;
+    box-shadow: none;
+    border: 0px;
+  }
+  
+  #faqs_order_acc h2.accordion-header button:after {
+    width: 2rem !important;
+    height: 2rem !important;
+    background-size: 2rem !important;
+  }
+  
+  #faqs_order_acc h2.accordion-header .accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-icon);
+  }
+  
+  #faqs_order_acc .accordion-body * {
+    color: white;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  
+  h2.yoyknow {
+    color: white;
+    font-size: 2.6rem;
+    line-height: 1.5;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .goto-storeBox {
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .goto-storeBox h3 {
+    width: min-content;
+    padding: 10px;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  
+  .oc_whitebrand {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .goto-storeBox>* {
+    margin: 4px;
+  }
+  
+  a.goto_store {
+    background-color: white;
+    color: var(--onc-color-txt);
+    text-decoration: none;
+    font-size: 3rem;
+    font-weight: 700;
+    padding: 14px 24px;
+    border-radius: 20px;
+  }
+  
+  a.goto_store:hover {
+    background-color: white;
+    box-shadow: var(--onc-boxshadow-yellow);
+  }
+  
+  footer {
+    background-color: var(--onc-color-bg-dark);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+  
+  footer a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /*** END HOME ***/
+  
+  /*** BIENVENIDO DELEGADO ***/
+  #hero.bienvenido-al-club {
+    background-color: var(--onc-color-bg);
+    text-align: center;
+  }
+  
+  #hero.bienvenido-al-club>.container {
+    padding: 100px;
+  }
+  
+  #hero.geta-nft-test>.container {
+    padding: 100px;
+  }
+  
+  #hero.bienvenido-al-club p {
+    color: white;
+    font-size: 2.2rem;
+    line-height: 1.3;
+  }
+  
+  #hero.bienvenido-al-club h1 {
+    margin-bottom: 8px;
+  }
+  
+  #coneectar_metamask-wrapper {
+    margin: 45px auto;
+  }
+  
+  #metamask-shield {
+    background-image: url(../img/boton-metamask.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 230px;
+    height: 340px;
+    position: relative;
+  }
+  
+  .connetMasktxt {
+    color: var(--onc-color-txt) !important;
+    position: relative;
+    bottom: 4%;
+    width: 150px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-size: 34px !important;
+    font-weight: 700;
+    line-height: 1.1 !important;
+    text-align: center;
+    left: auto;
+    right: auto;
+    top: 62%;
+  
+  }
+  
+  /*** BIENVENIDO DELEGADOS ***/
+  
+  /* BIENVENIDO AL CLUB */
+  #welcome-delegado-wrapper .container {
+    min-height: 420px;
+    max-width: 1024px;
+    margin: 35px auto;
+    background-color: white;
+  }
+  
+  /* END BIENVENIDO AL CLUB */
+  
+  /*** GET A NFT ***/
+  #hero.geta-nft-test {
+    background-color: var(--onc-color-bg);
+    text-align: center;
+  }
+  
+  #hero.geta-nft-test p {
+    color: white;
+    font-size: 2.2rem;
+    line-height: 1.3;
+  }
+  
+  #hero.geta-nft-test h1 {
+    margin-bottom: 8px;
+  }
+  
+  .info-getanft .container>div {
+    padding: 30px;
+  }
+  
+  .getnftcol1 {
+    text-align: right;
+  }
+  
+  p.getnft-show {
+    font-size: 3.2rem !important;
+    width: 53%;
+    float: right;
+  }
+  
+  .getnftcol2 {
+    text-align: left;
+  }
+  
+  .tonext_a {
+    max-width: 1024px;
+  }
+  
+  #instruction-wrapper {
+    min-height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 60px auto
+  }
+  
+  .instruction-viddeo {
+    padding: 30px;
+    width: 70%;
+  }
+  
+  .instruction-form {
+    background-color: var(--onc-color-yellow);
+    padding: 30px;
+    width: 30%;
+  }
+  
+  .instruction-form form {
+    margin: 0 auto !important;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    img.peoplesmoke {
+      width: 50%;
+    }
+  }
+  
+  /*** END GET A NFT ***/
+  
+  /*** MOBILE ****/
+  @media only screen and (max-width: 1024px) {
+  
+    html button.navbar-toggler,
+    button.navbar-toggler:hover,
+    button.navbar-toggler:active,
+    button.navbar-toggler:focus,
+    button.navbar-toggler:visited,
+    button.navbar-toggler:focus-visible,
+    button.navbar-toggler:focus-within,
+    button.navbar-toggler:target {
+      border: 0px;
+      outline: none;
+      box-shadow: none;
+    }
+  
+    span.navbar-toggler-icon {
+      background-image: var(--onc-mobileToggle);
+    }
+  
+    img.brand-logo {
+      height: 55px;
+    }
+  
+    header .navbar-nav .nav-link {
+      color: var(--onc-color-yellow);
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.1;
+      text-transform: uppercase;
+      padding: 8px;
+    }
+  
+    header .navbar-nav .nav-item {
+      margin: 6px 8px
+    }
+  
+    #hero h1 {
+      font-size: 54px;
+    }
+  
+    #video_welcome p {
+      color: white;
+      font-size: 21px;
+      line-height: 1.4;
+      text-align: center;
+    }
+  
+    div#our_history_section {
+      padding: 10px;
+      max-width: 100%;
+    }
+  
+    #our_history_section h2 {
+      font-size: 48px;
+    }
+  
+    #our_history_section p {
+      font-size: 22px;
+    }
+  
+    /* .our_history_images.d-flex.justify-content-around {
+      flex-direction: column;
+      flex-wrap: wrap;
+    } */
+  
+    .our_history_images img {
+      width: 57%;
+    }
+  
+    .our_history_images {
+      align-items: center;
+      flex-wrap: nowrap !important;
+      flex-direction: row !important;
+      padding: 50px 0;
+    }
+  
+    .benefics_content .container {
+      flex-direction: column;
+    }
+  
+    .benefics_title h2 {
+      font-size: 38px;
+      top: 4%;
+      right: 4%;
+    }
+  
+    .benefics_title {
+      height: 100%;
+      min-height: 100px;
+    }
+  
+    div#beneficios,
+    .benefics_info2,
+    .benefics_info1 {
+      width: 100% !important;
+      padding: 30px 4px;
+    }
+  
+    div#tokens {
+      width: 100%;
+    }
+  
+    .inner-benefics {
+      padding: 0px;
+    }
+  
+    #beneficios_ordinarios_acc .accordion-item {
+      padding: 10px;
+    }
+  
+    #beneficios_ordinarios_acc h2.accordion-header button {
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+  
+    .accordion-body {
+      padding: 10px;
+    }
+  
+    .benefics_info1 h3 {
+      font-size: 52px;
+    }
+  
+    .roadmap_timeline_wrapper {
+      padding: 170px 8px;
+    }
+  
+    .roadmap_card-info {
+      padding: 20px;
+      min-height: 120px;
+    }
+  
+    .roadmap_card {
+      width: 250px;
+    }
+  
+    .roadmap_card-title h4 {
+      text-shadow: 0px 0px 5px #000;
+      stroke: black;
+      stroke-width: 7px;
+      -webkit-text-stroke: black;
+      -webkit-text-stroke-width: 0.5px;
+    }
+  
+    #roadmap {
+      padding: 80px 0px 280px 0px;
+    }
+  
+    h2.faq-title {
+      font-size: 4rem;
+    }
+  
+    #faqs_order_acc h2.accordion-header button {
+      font-size: 1.5rem;
+    }
+  
+    #hero.bienvenido-al-club {
+      padding: 120px 0;
+    }
+  
+    #hero.bienvenido-al-club p {
+      font-size: 1.7rem;
+    }
+  
+    .instruction-viddeo,
+    .instruction-form {
+      width: 100%;
+    }
+  
+    .geta-nft-test {
+      padding: 120px 0;
+    }
+  
+    .getnftcol1,
+    .getnftcol2 {
+      width: 100% !important;
+    }
+  
+    .instruction-form form {
+      margin: 0 auto !important;
+    }
+  
+    .info-getanft .container {
+      flex-direction: column;
+    }
+  
+    p.getnft-show {
+      width: 100%;
+      font-size: 3rem !important;
+      line-height: 1.1 !important;
+    }
+  
+    p.tonext_a {
+      font-size: 1.9rem !important;
+    }
+  
+    .instruction-form img {
+      width: 160px;
+    }
+  
+    .instruction-form {
+      margin: 45px;
+      padding: 70px 8px 20px 8px;
+    }
+  
+    .get_a_test-NFT-btn {
+      width: 95%;
+      margin: 0 auto;
+  
+    }
+  
+    a.get_a_test-NFT-btn.ppal_cta {
+      font-size: 30px;
+      text-align: center;
+    }
+  
+    img.benefics_img.img-fluid {
+      max-height: 120px;
+    }
+  
+    .mobile_delegados {
+      display: block;
+    }
+  
+    #hero.bienvenido-al-club>.container {
+      padding: 10px;
+    }
+  
+    #hero.geta-nft-test>.container {
+      padding: 10px;
+    }
+  
+    div#hero.hero.home a.ppal_cta {
+      display: none;
+    }
+  
+    div#hero {
+      min-height: 53vh;
+      text-align: center;
+    }
+  
+    a.ppal_cta.mobile_cta {
+      margin: 10px auto 60px auto;
+      text-align: center;
+      display: block;
+      width: 95%;
+    }
+  
+  
+  }
+  
+  @media only screen and (max-width: 767px) {
+    div#metamask-shield {
+      width: 100%;
+      height: 400px;
+      margin: 0 auto;
+    }
+  }
+  
+  /* END MOBILE */
+  @media only screen and (min-width: 1025px) {
+  
+    .mobile_delegados,
+    a.ppal_cta.mobile_cta {
+      display: none;
+    }
+  }
+  
+  a.mobile_delegados.featured_cta {
+    padding: 10px;
+    font-size: 20px;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  #yasanescomo {
+    background-color: var(--onc-color-bg);
+    padding: 100px 0;
+  }
+  
+  .delegados_images ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+  
+  .delegados_images ul li {
+    width: 20%;
+    padding: 20px;
+  }
+  
+  div#yasanescomo {
+    text-align: center;
+    color: white;
+  }
+  
+  div#yasanescomo h2 {
+    font-size: 84px;
+  }
+  
+  div#yasanescomo h4 {
+    font-size: 47px;
+  }
+  
+  div#yasanescomo p {
+    font-size: 30px;
+  }
+  
+  div#yasanescomo .container {
+    max-width: 710px;
+  }
+  
+  div#yasanescomo video {
+    width: 100%;
+  }
+  
+  div#hero.herroo {
+    padding: 100px 0;
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    div#hero.herroo {
+      padding: 100px 0;
+    }
+  
+    .delegados_images li {
+      width: 100% !important;
+    }
+  
+    #yasanescomo {
+      background-color: var(--onc-color-bg);
+      padding: 20px 0;
+    }
+  
+    div#yasanescomo h4 {
+      font-size: 37px;
+      line-height: 1.2;
+    }
+  
+    div#yasanescomo h4 {
+      font-size: 37px;
+      line-height: 1.2;
+    }
+  
+    div#yasanescomo h4 {
+      font-size: 37px;
+      line-height: 1.2;
+    }
+  
+    div#yasanescomo p {
+      font-size: 20px;
+      line-height: 1.4;
+    }
+  
+    div#yasanescomo h2 {
+      font-size: 54px;
+      line-height: 1.2;
+    }
+  
+  }
